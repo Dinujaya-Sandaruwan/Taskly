@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".SplashActivity">
+
+    <!-- Logo & Branding (Centered) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBranding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <View
+            android:id="@+id/logoShadow"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:background="@drawable/bg_logo_shadow"
+            app:layout_constraintBottom_toBottomOf="@id/logoCard"
+            app:layout_constraintEnd_toEndOf="@id/logoCard"
+            app:layout_constraintStart_toStartOf="@id/logoCard"
+            app:layout_constraintTop_toTopOf="@id/logoCard" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/logoCard"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/app_logo" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvSplashName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Taskly"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoCard" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:letterSpacing="0.2"
+            android:text="PRECISION PRODUCTIVITY"
+            android:textColor="@color/version_text"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSplashName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Progress Indicator -->
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="100dp"
+        android:indeterminateTint="@color/primary_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clBranding" />
+
+    <!-- Initializing Tag -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_version_tag"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbLoading">
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/bg_tab_selected"
+            android:backgroundTint="@color/primary_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:letterSpacing="0.1"
+            android:text="INITIALIZING ENVIRONMENT"
+            android:textColor="@color/primary_blue"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Version Bottom Right -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:text="V2.4.0-STABLE"
+        android:textColor="#CCCCCC"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         LinearLayout llChangePassword = findViewById(R.id.llChangePassword);
         llChangePassword.setOnClickListener(v -> showChangePasswordSheet());
+
+        // Footer Actions
+        findViewById(R.id.llHelpSupport).setOnClickListener(v -> {
+            Intent intent = new Intent(SettingsActivity.this, HelpSupportActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.llAboutTaskly).setOnClickListener(v -> {
+            Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showEditProfileSheet() {

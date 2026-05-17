@@ -24,6 +24,12 @@
             android:name=".AddTaskActivity"
             android:exported="false" />
         <activity
+            android:name=".HelpSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditTaskActivity"
             android:exported="false" />
         <activity

@@ -252,6 +252,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <!-- Notifications -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="72dp"
@@ -285,6 +286,7 @@
                         android:layout_marginHorizontal="20dp"
                         android:background="#F5F5F7" />
 
+                    <!-- Light Theme -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="72dp"
@@ -356,13 +358,17 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <!-- Help & Support -->
                     <LinearLayout
+                        android:id="@+id/llHelpSupport"
                         android:layout_width="match_parent"
                         android:layout_height="72dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingHorizontal="20dp"
-                        android:background="?attr/selectableItemBackground">
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
@@ -388,13 +394,17 @@
                         android:layout_marginHorizontal="20dp"
                         android:background="#F5F5F7" />
 
+                    <!-- About Taskly -->
                     <LinearLayout
+                        android:id="@+id/llAboutTaskly"
                         android:layout_width="match_parent"
                         android:layout_height="72dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingHorizontal="20dp"
-                        android:background="?attr/selectableItemBackground">
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"

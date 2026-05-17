@@ -13,17 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:paddingTop="70dp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toTopOf="@id/clBottomNav"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="24dp"
-            android:paddingBottom="40dp">
+            android:paddingTop="70dp"
+            android:paddingHorizontal="24dp">
 
             <!-- STATUS -->
             <TextView
@@ -172,10 +171,22 @@
                     android:orientation="vertical"
                     android:padding="40dp">
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/ic_no_results" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        app:cardBackgroundColor="#F5F5F7"
+                        app:cardCornerRadius="60dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="12dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_no_results" />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -207,6 +218,11 @@
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- MASSIVE Bottom Spacer for scrolling -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -329,15 +345,18 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/llSettingsNav"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_settings" />
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/version_text" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

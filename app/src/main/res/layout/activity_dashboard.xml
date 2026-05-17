@@ -35,9 +35,7 @@
                 android:text="DASHBOARD"
                 android:textColor="@color/primary_blue"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvActiveVelocity"
@@ -57,9 +55,7 @@
                 android:text="84%"
                 android:textColor="@color/primary_blue"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvActiveVelocity" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvProjectName"
@@ -143,13 +139,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tvPriorityLabel">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTask1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    app:strokeWidth="0dp">
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -184,13 +184,17 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTask2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    app:strokeWidth="0dp">
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -225,13 +229,17 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTask3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    app:strokeWidth="0dp">
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -386,11 +394,15 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/llHomeNav"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <LinearLayout
                     android:layout_width="70dp"
                     android:layout_height="44dp"
@@ -418,7 +430,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="?attr/selectableItemBackground">
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -438,7 +452,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="?attr/selectableItemBackground">
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"

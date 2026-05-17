@@ -18,5 +18,11 @@ public class SearchActivity extends AppCompatActivity {
 
         LinearLayout llHomeNav = findViewById(R.id.llHomeNav);
         llHomeNav.setOnClickListener(v -> finish());
+
+        LinearLayout llSettingsNav = findViewById(R.id.llSettingsNav);
+        llSettingsNav.setOnClickListener(v -> {
+            Intent intent = new Intent(SearchActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 }

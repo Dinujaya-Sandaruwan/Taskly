@@ -18,5 +18,10 @@ public class DashboardActivity extends AppCompatActivity {
             Intent intent = new Intent(DashboardActivity.this, SearchActivity.class);
             startActivity(intent);
         });
+        LinearLayout llSettingsNav = findViewById(R.id.llSettingsNav);
+        llSettingsNav.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 }

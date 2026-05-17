@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -15,7 +16,15 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        // Add Task FAB
+        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, AddTaskActivity.class);
+            startActivity(intent);
+        });
+
         // Task Cards Navigation
+...
         MaterialCardView cvTask1 = findViewById(R.id.cvTask1);
         MaterialCardView cvTask2 = findViewById(R.id.cvTask2);
         MaterialCardView cvTask3 = findViewById(R.id.cvTask3);

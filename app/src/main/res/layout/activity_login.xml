@@ -10,8 +10,8 @@
     <!-- Top Branding -->
     <View
         android:id="@+id/logoShadow"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/bg_logo_shadow"
         app:layout_constraintBottom_toBottomOf="@id/logoCard"
         app:layout_constraintEnd_toEndOf="@id/logoCard"
@@ -25,7 +25,7 @@
         android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
+        app:cardElevation="0dp"
         app:strokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -221,23 +221,25 @@
         app:layout_constraintTop_toBottomOf="@id/loginCard" />
 
     <!-- Version Label -->
+
+    <!-- Footer Container -->
     <TextView
         android:id="@+id/versionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bg_version_tag"
+        android:letterSpacing="0.1"
         android:paddingHorizontal="16dp"
         android:paddingVertical="6dp"
         android:text="VERSION 2.4.0-STABLE"
         android:textColor="@color/version_text"
         android:textSize="10sp"
-        android:letterSpacing="0.1"
         app:layout_constraintBottom_toTopOf="@id/footerContainer"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Footer Container -->
     <LinearLayout
         android:id="@+id/footerContainer"
         android:layout_width="wrap_content"

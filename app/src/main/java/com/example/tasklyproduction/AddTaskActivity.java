@@ -69,6 +69,11 @@ public class AddTaskActivity extends AppCompatActivity {
 
         // Save button
         tvSave.setOnClickListener(v -> saveTask());
+
+        // Set current date on the "edited" timestamp
+        TextView tvEditedTimestamp = findViewById(R.id.tvEditedTimestamp);
+        SimpleDateFormat editedFormat = new SimpleDateFormat("'EDITED' MMM dd, yyyy", Locale.getDefault());
+        tvEditedTimestamp.setText(editedFormat.format(new java.util.Date()).toUpperCase());
     }
 
     private void showDatePicker() {

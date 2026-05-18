@@ -336,11 +336,12 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/tvEditedTimestamp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:text="EDITED 2M AGO"
+                            android:text=""
                             android:textColor="@color/version_text"
                             android:textSize="10sp"
                             android:textStyle="bold" />

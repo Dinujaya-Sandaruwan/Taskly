@@ -16,7 +16,7 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         android:clipToPadding="false"
-        android:paddingTop="60dp"
+        android:paddingTop="68dp"
         app:layout_constraintBottom_toTopOf="@id/clBottomNav"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -26,6 +26,7 @@
             android:paddingHorizontal="24dp"
             android:paddingBottom="100dp">
 
+            <!-- DASHBOARD label -->
             <TextView
                 android:id="@+id/tvDashboardLabel"
                 android:layout_width="wrap_content"
@@ -35,8 +36,11 @@
                 android:text="DASHBOARD"
                 android:textColor="@color/primary_blue"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- ACTIVE VELOCITY label (top-right) -->
             <TextView
                 android:id="@+id/tvActiveVelocity"
                 android:layout_width="wrap_content"
@@ -45,28 +49,36 @@
                 android:textColor="@color/version_text"
                 android:textSize="10sp"
                 android:gravity="end"
+                android:letterSpacing="0.05"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvDashboardLabel" />
+                app:layout_constraintTop_toTopOf="@id/tvProjectName" />
 
+            <!-- Velocity percentage -->
             <TextView
                 android:id="@+id/tvVelocityPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="84%"
+                android:layout_marginTop="4dp"
+                android:text="0%"
                 android:textColor="@color/primary_blue"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvActiveVelocity" />
 
+            <!-- Project / User Name (large title) -->
             <TextView
                 android:id="@+id/tvProjectName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Product\nEngine"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="My\nTasks"
                 android:textColor="@color/black"
                 android:textSize="42sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/tvVelocityPercent"
+                android:lineSpacingExtra="-4dp"
+                app:layout_constraintEnd_toStartOf="@id/tvActiveVelocity"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDashboardLabel" />
 
@@ -74,14 +86,15 @@
             <LinearLayout
                 android:id="@+id/llTabs"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="32dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/bg_tab_container"
                 android:orientation="horizontal"
                 android:padding="4dp"
                 app:layout_constraintTop_toBottomOf="@id/tvProjectName">
 
                 <TextView
+                    android:id="@+id/tvTabToday"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -89,30 +102,36 @@
                     android:gravity="center"
                     android:text="Today"
                     android:textColor="@color/white"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvTabUpcoming"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Upcoming"
-                    android:textColor="@color/version_text" />
+                    android:textColor="@color/version_text"
+                    android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvTabCompleted"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Completed"
-                    android:textColor="@color/version_text" />
+                    android:textColor="@color/version_text"
+                    android:textSize="14sp" />
             </LinearLayout>
 
+            <!-- HIGH PRIORITY label with divider -->
             <TextView
                 android:id="@+id/tvPriorityLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="32dp"
                 android:letterSpacing="0.1"
                 android:text="HIGH PRIORITY"
                 android:textColor="@color/version_text"
@@ -131,147 +150,40 @@
                 app:layout_constraintTop_toTopOf="@id/tvPriorityLabel" />
 
             <!-- Task List -->
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTasks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/tvPriorityLabel" />
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/llEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:orientation="vertical"
+                android:padding="40dp"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/tvPriorityLabel">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvTask1"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="0dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="20dp">
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_circle_outline" />
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Refactor Auth Microservice"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2026-05-20"
-                                android:textColor="@color/version_text"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
+                    android:text="No tasks yet"
+                    android:textColor="@color/version_text"
+                    android:textSize="16sp" />
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvTask2"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="0dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="20dp">
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_circle_outline" />
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Review API Documentation"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2026-05-20"
-                                android:textColor="@color/version_text"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvTask3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="0dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="20dp">
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_circle_outline" />
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Implement Redis Caching Layer"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2026-05-21"
-                                android:textColor="@color/version_text"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
+                    android:layout_marginTop="8dp"
+                    android:text="Tap + to create your first task"
+                    android:textColor="@color/version_text"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -279,11 +191,11 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Header (Fixed Top Bar, Solid Background, Minimized Height) -->
+    <!-- Header (Fixed Top Bar) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clHeaderContainer"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="64dp"
         android:background="#FBFBFF"
         android:clipChildren="false"
         android:clipToPadding="false"
@@ -309,10 +221,10 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/logoCard"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -332,7 +244,7 @@
                 android:layout_marginStart="12dp"
                 android:text="Taskly"
                 android:textColor="@color/primary_blue"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/logoCard"
                 app:layout_constraintStart_toEndOf="@id/logoCard"
@@ -340,10 +252,10 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/ivProfileCard"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 app:cardBackgroundColor="#F5F5F7"
-                app:cardCornerRadius="18dp"
+                app:cardCornerRadius="21dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -351,10 +263,11 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/ivHeaderAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="9dp"
-                    android:scaleType="centerInside"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/ic_dummy_avatar" />
 
             </com.google.android.material.card.MaterialCardView>

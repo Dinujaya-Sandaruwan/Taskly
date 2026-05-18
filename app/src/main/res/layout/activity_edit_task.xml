@@ -163,6 +163,7 @@
 
             <!-- Due Date Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvDueDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -209,10 +210,11 @@
                             android:layout_height="20dp"
                             android:src="@drawable/ic_calendar" />
                         <TextView
+                            android:id="@+id/tvDueDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="May 20, 2026"
+                            android:text="Select Date"
                             android:textColor="@color/primary_blue"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -241,6 +243,7 @@
                 android:padding="4dp">
 
                 <LinearLayout
+                    android:id="@+id/llPriorityHigh"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -252,6 +255,7 @@
                         android:layout_height="16dp"
                         android:src="@drawable/ic_priority_high" />
                     <TextView
+                        android:id="@+id/tvPriorityHigh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -262,6 +266,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvPriorityMedium"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -271,6 +276,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tvPriorityLow"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -297,10 +303,11 @@
                         android:textColor="@color/version_text"
                         android:textSize="10sp" />
                     <TextView
+                        android:id="@+id/tvCreatedAt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="2026-05-18 09:00"
+                        android:text=""
                         android:textColor="@color/version_text"
                         android:textSize="12sp" />
                 </RelativeLayout>
@@ -316,10 +323,11 @@
                         android:textColor="@color/version_text"
                         android:textSize="10sp" />
                     <TextView
+                        android:id="@+id/tvUpdatedAt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="2026-05-19 14:30"
+                        android:text=""
                         android:textColor="@color/version_text"
                         android:textSize="12sp" />
                 </RelativeLayout>

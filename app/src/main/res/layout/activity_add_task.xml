@@ -124,6 +124,7 @@
                     </LinearLayout>
 
                     <RelativeLayout
+                        android:id="@+id/rlDueDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp">
@@ -134,10 +135,11 @@
                             android:textColor="@color/black"
                             android:textSize="16sp" />
                         <TextView
+                            android:id="@+id/tvDueDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:text="OCT 24, 2023"
+                            android:text="Select Date"
                             android:textColor="@color/primary_blue"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -150,6 +152,7 @@
                         android:background="#F5F5F7" />
 
                     <RelativeLayout
+                        android:id="@+id/rlAlertTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp">
@@ -160,10 +163,11 @@
                             android:textColor="@color/black"
                             android:textSize="16sp" />
                         <TextView
+                            android:id="@+id/tvAlertTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:text="09:00 AM"
+                            android:text="Set Time"
                             android:textColor="@color/primary_blue"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -218,6 +222,7 @@
                         android:padding="4dp">
 
                         <TextView
+                            android:id="@+id/tvPriorityHigh"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -229,6 +234,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvPriorityMedium"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -238,6 +244,7 @@
                             android:textSize="10sp" />
 
                         <TextView
+                            android:id="@+id/tvPriorityLow"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

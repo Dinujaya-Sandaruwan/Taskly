@@ -44,6 +44,7 @@
                 android:padding="4dp">
 
                 <TextView
+                    android:id="@+id/tvStatusPending"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_tab_selected"
@@ -54,6 +55,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvStatusCompleted"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -82,6 +84,7 @@
                 android:padding="4dp">
 
                 <TextView
+                    android:id="@+id/tvPriorityHigh"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -90,6 +93,7 @@
                     android:textColor="@color/version_text" />
 
                 <TextView
+                    android:id="@+id/tvPriorityMedium"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -100,6 +104,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPriorityLow"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -128,6 +133,7 @@
                 android:padding="4dp">
 
                 <TextView
+                    android:id="@+id/tvDueToday"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -136,6 +142,7 @@
                     android:textColor="@color/version_text" />
 
                 <TextView
+                    android:id="@+id/tvDueTomorrow"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -144,6 +151,7 @@
                     android:textColor="@color/version_text" />
 
                 <TextView
+                    android:id="@+id/tvDueThisWeek"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.2"
@@ -154,8 +162,18 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Search Results -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSearchResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
+
             <!-- No Results Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvNoResults"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
@@ -258,6 +276,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toStartOf="@id/ivClearSearch"

@@ -13,11 +13,19 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Transition to Welcome Screen (MainActivity) after 2 seconds
+        // Transition after 2 seconds
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            SessionManager sessionManager = new SessionManager(SplashActivity.this);
+            Intent intent;
+            if (sessionManager.isLoggedIn()) {
+                // Auto-login: go directly to Dashboard
+                intent = new Intent(SplashActivity.this, DashboardActivity.class);
+            } else {
+                // Not logged in: go to Welcome Screen
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+            }
             startActivity(intent);
-            finish(); // Close SplashActivity so user can't go back to it
+            finish();
         }, 2000);
     }
 }

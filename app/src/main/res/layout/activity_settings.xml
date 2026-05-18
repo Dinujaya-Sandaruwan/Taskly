@@ -61,15 +61,17 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:id="@+id/ivProfileAvatar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="0dp"
-                        android:scaleType="centerInside"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_dummy_avatar" />
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvEditAvatar"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     app:cardBackgroundColor="@color/primary_blue"
@@ -91,21 +93,23 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"
-                android:text="Johnathan Doe"
+                android:text="User"
                 android:textColor="@color/black"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvUserEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
-                android:text="architect@taskly.io"
+                android:text="user@taskly.io"
                 android:textColor="@color/version_text"
                 android:textSize="16sp" />
 
@@ -532,24 +536,17 @@
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true">
-                <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="44dp"
-                    android:background="@drawable/bg_tab_selected"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_home" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="HOME"
-                        android:textColor="@color/white"
-                        android:textSize="9sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/version_text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HOME"
+                    android:textColor="@color/version_text"
+                    android:textSize="9sp" />
             </LinearLayout>
 
             <LinearLayout
